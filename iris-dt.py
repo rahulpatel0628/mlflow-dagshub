@@ -4,8 +4,13 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score,precision_score, recall_score, f1_score ,confusion_matrix 
-mlflow.set_tracking_uri("http://localhost:5000")  # Set the MLflow tracking URI
+from sklearn.metrics import accuracy_score,precision_score, recall_score, f1_score ,confusion_matrix
+import dagshub
+
+dagshub.init(repo_owner="rahulpatel16092005", repo_name="mlflow-dagshub", mlflow=True) 
+mlflow.set_tracking_uri("https://dagshub.com/rahulpatel16092005/mlflow-dagshub.mlflow") 
+
+
 load_iris = load_iris()
 X = load_iris.data
 y = load_iris.target
